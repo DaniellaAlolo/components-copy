@@ -17,28 +17,27 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:3000/api/auth/login', {
-        method: 'POST',
-        credentials: 'include',  // for sending cookies
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("http://localhost:3002/api/auth/login", {
+        method: "POST",
+        credentials: "include", // for sending cookies
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
         const data = await response.json();
         const accessToken = data.accessToken;
-        setMessage('Login successful');
+        setMessage("Login successful");
         setToken(accessToken);
         setIsLoggedIn(true);
       } else {
-        throw new Error('Login failed');
+        throw new Error("Login failed");
       }
     } catch (error) {
-      console.error('Login failed', error);
-      setMessage('Login failed. Try again');
+      console.error("Login failed", error);
+      setMessage("Login failed. Try again");
     }
   };
-
 
   if (isLoggedIn) {
     return <Header token={token} />;
