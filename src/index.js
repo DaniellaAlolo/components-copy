@@ -1,5 +1,5 @@
 import { Chat } from "./components/Chat";
-import { CookieConsent } from "./components/CookieConsent"
+import { CookieConsent } from "./components/CookieConsent";
 import { DataRequest } from "./components/DataRequest";
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
@@ -12,9 +12,11 @@ import { LoginForm } from "./components/Login";
 import { Sidebar } from "./components/Sidebar";
 import { TodoBoard } from "./components/Todo";
 import { ThemePicker } from "./components/ThemePicker";
-import { useTheme } from "./components/ThemePicker"
+import { useTheme } from "./components/ThemePicker";
+import { AdminDashboard } from "./components/Admin";
 
 export {
+  AdminDashboard,
   Chat,
   CookieConsent,
   DataRequest,
