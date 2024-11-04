@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import AvatarAtom from "./AvatarAtom";
 import { FaBell, FaCog } from "react-icons/fa";
 import AvatarDisplayAtom from "./AvatarDisplayAtom";
+import Btn from "../Btn/Btn.jsx";
+import LoginForm from "../Login/LoginForm.jsx";
 
 const Header = ({
   title = "AI Assistant",
@@ -14,8 +16,28 @@ const Header = ({
 }) => {
   const [userName, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
-  return (
+  const handleLogout = async () => {
+    // Din logout-logik här
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/logout", {
+        method: "POST",
+        credentials: "include", // Om du använder cookies
+      });
+
+      if (!response.ok) {
+        throw new Error("Logout failed");
+      }
+
+      setIsLoggedIn(false); // Sätt inloggad status till false
+      console.log("Logout successful");
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
+
+  return isLoggedIn ? (
     <>
       <div className={`${styles.headerContainer} ${className}`}>
         <div className={styles.headerLeft}>
@@ -29,9 +51,12 @@ const Header = ({
           <AvatarAtom avatar={avatar} onChangeAvatar={setAvatar} />
           <ProfileAtom userName={userName} />
           <AvatarDisplayAtom avatar={avatar} />
+          <Btn text="Logga ut" onLogout={handleLogout} backgroundColor="red" />
         </div>
       </div>
     </>
+  ) : (
+    <LoginForm />
   );
 };
 

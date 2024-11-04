@@ -17,7 +17,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://localhost:3002/api/auth/login", {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
         credentials: "include", // for sending cookies
         headers: { "Content-Type": "application/json" },

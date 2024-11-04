@@ -1,9 +1,24 @@
 import styles from "./Btn.module.css";
 import React from "react";
 
-const Button = ({ text, onClick, icon, backgroundColor, type = "button" }) => {
+const Button = ({
+  text,
+  onClick,
+  icon,
+  backgroundColor,
+  type = "button",
+  onLogout,
+}) => {
   const buttonStyle = {
     backgroundColor: backgroundColor,
+  };
+
+  const handleClick = () => {
+    if (onLogout) {
+      onLogout(); // Anropa logout-funktionen om den finns
+    } else {
+      onClick(); // Annars anropa standard onClick
+    }
   };
 
   return (
@@ -11,7 +26,7 @@ const Button = ({ text, onClick, icon, backgroundColor, type = "button" }) => {
       type={type}
       className={styles.submitBtn}
       style={buttonStyle}
-      onClick={onClick}
+      onClick={handleClick}
     >
       {icon}
       {text}
