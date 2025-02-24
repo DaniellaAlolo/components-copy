@@ -10,6 +10,7 @@ import Btn from "../Btn/Btn.jsx";
 import LoginForm from "../Login/LoginForm.jsx";
 
 const Header = ({
+  token,
   title = "AI Assistant",
   subtitle = "Smart Solutions for an Easier Everyday",
   className,
@@ -19,18 +20,17 @@ const Header = ({
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogout = async () => {
-    // Din logout-logik här
     try {
       const response = await fetch("http://localhost:3000/api/auth/logout", {
         method: "POST",
-        credentials: "include", // Om du använder cookies
+        credentials: "include",
       });
 
       if (!response.ok) {
         throw new Error("Logout failed");
       }
 
-      setIsLoggedIn(false); // Sätt inloggad status till false
+      setIsLoggedIn(false);
       console.log("Logout successful");
     } catch (error) {
       console.error("Logout error:", error);

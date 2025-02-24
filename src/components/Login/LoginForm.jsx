@@ -30,6 +30,7 @@ const LoginForm = () => {
         setMessage("Login successful");
         setToken(accessToken);
         setIsLoggedIn(true);
+        console.log(isLoggedIn, "isLoggedin");
       } else {
         throw new Error("Login failed");
       }
