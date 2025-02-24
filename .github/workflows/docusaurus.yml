@@ -14,5 +14,5 @@ jobs:
           curl -X POST \
           -H "Accept: application/vnd.github.v3+json" \
           -H "Authorization: token ${{ secrets.DOCUS_REPO_TOKEN }}" \
-          https://api.github.com/repos/DaniellaAlolo/auth-docs/dispatches \
+          https://api.github.com/repos/DaniellaAlolo/my-docs/dispatches \
           -d '{"event_type": "external-doc-update"}'
