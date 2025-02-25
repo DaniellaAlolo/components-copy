@@ -1,3 +1,8 @@
+---
+id: intro # Viktigt att "id" matchar din sidebar eller länk
+title: External Documentation
+---
+
 # Fwk-23-4-Components
 
 > Components for the Ai-assistan app by group 4
