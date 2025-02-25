@@ -1,5 +1,5 @@
 ---
-id: intro # Viktigt att "id" matchar din sidebar eller länk
+id: components-copy-intro # Viktigt att "id" matchar din sidebar eller länk
 title: External Documentation
 ---
 
